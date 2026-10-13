@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="AdditionPlugin/AdditionPlugin.csproj" />
+  <Project Path="TemplatePlugin/TemplatePlugin.csproj" />
+  <Project Path="WpfApp1/WpfApp1.csproj" />
+</Solution>
