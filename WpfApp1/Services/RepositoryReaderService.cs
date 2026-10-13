@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using TemplatePlugin;
 
 namespace WpfApp1.Services
 {
@@ -22,6 +23,11 @@ namespace WpfApp1.Services
                 var assembly = Assembly.LoadFrom(file);
                 foreach (var type in assembly.GetExportedTypes())
                 {
+                    var attribute = type.GetCustomAttribute<TemplatePluginAttribute>();
+
+                    if (attribute == null)
+                        continue;
+
                     foreach (var method in type.GetMethods(BindingFlags.Public | BindingFlags.Instance))
                     {
                         logService.Log($"Method with name {method.Name} found.");
